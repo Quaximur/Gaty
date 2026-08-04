@@ -14,10 +14,6 @@ builder.Services.AddOpenApi();
 builder.Services
     .AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
-    //.ConfigureHttpClient((context, handler) =>
-    //{
-    //    handler.AllowAutoRedirect = true;
-    //});
 
 var app = builder.Build();
 
@@ -34,8 +30,6 @@ app.Use(async (context, next) =>
 
     Console.WriteLine($"Response: {context.Response.StatusCode}");
 });
-
-//app.UseHttpsRedirection();s
 
 app.MapReverseProxy();
 
