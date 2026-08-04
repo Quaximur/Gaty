@@ -1,6 +1,23 @@
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(15000, listenOptions =>
+    {
+        listenOptions.Protocols = HttpProtocols.Http2;
+    });
+});
+
 builder.Services.AddOpenApi();
+builder.Services
+    .AddReverseProxy()
+    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+    //.ConfigureHttpClient((context, handler) =>
+    //{
+    //    handler.AllowAutoRedirect = true;
+    //});
 
 var app = builder.Build();
 
@@ -9,8 +26,17 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"Incoming: {context.Request.Path}");
 
-app.MapGet(string.Empty, () => "Gateway is waiting for you");
+    await next();
+
+    Console.WriteLine($"Response: {context.Response.StatusCode}");
+});
+
+//app.UseHttpsRedirection();s
+
+app.MapReverseProxy();
 
 app.Run();
