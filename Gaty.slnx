@@ -3,5 +3,5 @@
     <File Path=".env" />
     <File Path=".gitignore" />
   </Folder>
-  <Project Path="Gaty.API/Gaty.API.csproj" />
+  <Project Path="API/Gaty.API.csproj" />
 </Solution>
