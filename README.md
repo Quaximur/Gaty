@@ -8,9 +8,9 @@ Built around YARP with HTTP/2 forwarding and JWT authorization.
 
 ## 🛠️ Tech Stack
 
-[![.NET](https://img.shields.io/badge/10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://github.com/dotnet/runtime)
-[![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://github.com/dotnet/aspnetcore)
-[![YARP](https://img.shields.io/badge/YARP-Reverse_Proxy-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://github.com/dotnet/yarp)
+[![.NET](https://img.shields.io/badge/.NET_10-512BD4?style=plastic&logo=dotnet&logoColor=white)](https://github.com/dotnet/runtime)
+[![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-512BD4?style=plastic&logo=dotnet&logoColor=white)](https://github.com/dotnet/aspnetcore)
+[![YARP](https://img.shields.io/badge/YARP-6F42C1?style=plastic&logo=github&logoColor=white)](https://github.com/dotnet/yarp)
 
 ## ⚡ What's Inside
 
